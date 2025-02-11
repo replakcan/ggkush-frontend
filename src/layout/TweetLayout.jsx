@@ -4,6 +4,8 @@ import Tweet from "../components/Tweet";
 function TweetLayout() {
   const tweets = useSelector((store) => store.tweet.tweets);
 
+  tweets.sort((a, b) => a.createdAt - b.createdAt);
+
   return (
     <>
       {tweets.map((tweet) => {
