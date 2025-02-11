@@ -1,13 +1,16 @@
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { fetchTweets } from "./store/actions/tweetActions";
-import { fetchUsers } from "./store/actions/userActions";
-
 import 'primereact/resources/themes/lara-light-indigo/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
-import Home from "./pages/Home";
+
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { fetchTweets } from "./store/actions/tweetActions";
+import { fetchUsers } from "./store/actions/userActions";
+import { Route, Routes } from "react-router";
+import TweetLayout from "./layout/TweetLayout";
+import PeopleLayout from "./layout/PeopleLayout";
+import Home from "./pages/Home"
 
 function App() {
   const dispatch = useDispatch();
@@ -19,7 +22,11 @@ function App() {
 
   return (
     <>
-      <Home />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/tweets" element={<TweetLayout />} />
+        <Route path="/people" element={<PeopleLayout />} />
+      </Routes>
     </>
   );
 }
