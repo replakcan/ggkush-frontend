@@ -11,6 +11,7 @@ import { Route, Routes } from "react-router";
 import TweetLayout from "./layout/TweetLayout";
 import PeopleLayout from "./layout/PeopleLayout";
 import Home from "./pages/Home"
+import Login from './pages/Login';
 
 function App() {
   const dispatch = useDispatch();
@@ -26,6 +27,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/tweets" element={<TweetLayout />} />
         <Route path="/people" element={<PeopleLayout />} />
+        <Route path='/login' element={<Login />} />
       </Routes>
     </>
   );
