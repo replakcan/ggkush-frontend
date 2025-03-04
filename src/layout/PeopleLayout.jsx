@@ -1,9 +1,16 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Person from "../components/Person";
+import { fetchPeople } from "../store/actions/tweetActions";
+import { useEffect } from "react";
 
 function PeopleLayout() {
-  const people = useSelector((store) => store.user.users);
-  console.log(people)
+  const dispatch = useDispatch()
+  const { username, password } = useSelector((store) => store.user.user_auth) 
+  const people = useSelector((store) => store.tweet.people);
+
+  useEffect(() => {
+      dispatch(fetchPeople(username, password));
+    }, [username, password, dispatch]);
 
   return (
     <>
@@ -11,10 +18,8 @@ function PeopleLayout() {
         return (
           <Person
             key={person.id}
-            firstName={person.firstName}
-            lastName={person.lastName}
+            userName={person.userName}
             nickName={person.nickName}
-            email={person.email}
           />
         );
       })}
