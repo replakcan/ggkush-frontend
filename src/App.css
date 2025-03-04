@@ -1,3 +1,17 @@
 .p-card-content {
     padding: 0;
 }
+
+.form-input-span {
+    width: min-content;
+}
+
+form {
+    width: min-content;
+}
+
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
