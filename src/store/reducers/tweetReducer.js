@@ -1,17 +1,23 @@
-import { SET_TWEETS } from "../actions/tweetActions";
+import { SET_TWEETS, SET_PEOPLE } from "../actions/tweetActions";
 
 const initialState = {
-    tweets: []
-}
+  tweets: [],
+  people: [],
+};
 
 export default function TweetReducer(state = initialState, action) {
-    switch (action.type) {
-        case SET_TWEETS:
-            return {
-                ...state,
-                tweets: action.payload
-            }
-        default:
-            return state;
-    }
+  switch (action.type) {
+    case SET_TWEETS:
+      return {
+        ...state,
+        tweets: action.payload,
+      };
+    case SET_PEOPLE:
+      return {
+        ...state,
+        people: action.payload,
+      };
+    default:
+      return state;
+  }
 }
