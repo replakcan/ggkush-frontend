@@ -1,10 +1,10 @@
-import TweetLayout from "../layout/TweetLayout";
+import Login from "./Login"
 
 function Home() {
 
   return (
     <>
-      <TweetLayout />
+      <Login />
     </>
   );
 }
