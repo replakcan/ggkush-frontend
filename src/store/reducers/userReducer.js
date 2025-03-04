@@ -1,15 +1,18 @@
-import { SET_USERS } from "../actions/userActions";
+import { SET_AUTH } from "../actions/userActions";
 
 const initialState = {
-    users: []
+    user_auth: {
+        username: "test@is.com",
+        password: "123Alper"
+    }
 }
 
 export default function UserReducer(state = initialState, action) {
     switch (action.type) {
-        case SET_USERS:
+        case SET_AUTH:
             return {
                 ...state,
-                users: action.payload
+                user_auth: action.payload
             }
         default:
             return state;
